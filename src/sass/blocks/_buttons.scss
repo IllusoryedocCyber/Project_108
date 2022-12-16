@@ -15,4 +15,15 @@
         height: 54px;  
         font-size: 16px;
     }
+    &_submit {
+        width: 300px;
+        height: 55px;
+        background-color: $main-color;
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #ffffff;
+    }
 }
