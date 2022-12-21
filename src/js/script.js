@@ -15,20 +15,13 @@
 //         ]
 //       });
 //   });
-$(document).ready(function() {
-    $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
-        $(this)
             //ссылаемся на элемент который нажали . на элемент на который нажали даем ему класс актив а у всех остальных убираем класс актив . у соседних забираем класс актив если он у них присутствует
-          .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
         //   команда найти блок div с классом ближайший 
         // find some block with content 
         // thouse elements that we found we will remove class active or element with class _active
         // eq that command add number to the element to which we press 
         // when i press tab 2 i should open content with number 2 that eq index is doing it 
         // next add class i will add to content class active 
-          .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this)
-          .index()).addClass('catalog__content_active');
-    });
     // доллар $это функция в jquery позволяет мне  получать все елементы по классу со страници селектор это(класс айди комбинации(тег с классом ul class=name и тд)) я хочу чтоб при клике на определенные ссылки у меня что то происходило 
     // указываю each говорю что для каждого елементы будет чтото происходить
     // каждый елемент ето каждая ссылка подробнее из каждой карточки
@@ -63,20 +56,13 @@ $(document).ready(function() {
     // там где будет меняться класс я ставлю item в теперь каждый раз когда я буду вызывать функцию я будут подставлять item 
     // ссылку на тот элемент который буду использовать в зависимости от этого у меня будут выполняться операции с разными ссылками
     // есть функция которой я передаю ссылку и она уже делает операции с ними 
-    function toggleSlide(item) {
-        $(item).each(function(i) {
-            $(this).on('click', function(e) {
-                e.preventDefault();
-                $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
-                $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
-            })
-        })
-    };
-
-    toggleSlide('.catalog-item__link');
-    toggleSlide('.catalog-item__back');
-});
-
+$(document).ready(function(){
+    $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
+        $(this)
+          .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
+          .closest('div.catalog__block').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
+      });
+  });
 // tinyslider
 const slider = tns({
     container: '.carousel__inner',
