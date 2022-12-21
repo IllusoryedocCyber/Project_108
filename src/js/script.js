@@ -26,7 +26,8 @@ $(document).ready(function() {
         // eq that command add number to the element to which we press 
         // when i press tab 2 i should open content with number 2 that eq index is doing it 
         // next add class i will add to content class active 
-          .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
+          .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this)
+          .index()).addClass('catalog__content_active');
     });
     // доллар $это функция в jquery позволяет мне  получать все елементы по классу со страници селектор это(класс айди комбинации(тег с классом ul class=name и тд)) я хочу чтоб при клике на определенные ссылки у меня что то происходило 
     // указываю each говорю что для каждого елементы будет чтото происходить
