@@ -1,7 +1,81 @@
+@media (max-width: 1200px) {
+    .promo {
+        min-height: 600px;
+        padding-bottom: 70px;
+        .header {
+            justify-content: space-around;
+            &__logo {
+                width: 200px;
+            }
+        }
+        &__wrapper {
+            margin-top: 65px;
+            padding-right: 65px;
+        }
+        &__icons {
+            margin-top: 50px;
+        }
+        .button_main {
+            width: 280px;
+        }
+    }
+    .advantages {
+        padding: 60px 0 65px 0;
+        &__wrapper {
+            margin-top: 60px;
+        }
+        &__icons {
+            justify-content: space-around;
+        }
+    }
+    .consultation {
+        min-width: 600px;
+        padding: 65px 0 65px 35px;
+        &__descr {
+            margin-top: 65px;
+        }
+    }
+    .carousel {
+        padding: 60px 0 20px 0;
+        &__inner {
+            width: 600px;
+        }
+        .prev {
+            left: 13px;
+        }
+        .next {
+            right: 24px;
+        }
+        .prev, .next, img {
+            background-color: hsla(0, 0%, 100%, 0);
+        }
+    }
+    .catalog {
+        padding-bottom: 75px;
+    }
+    .reviews {
+        padding-left: 50px;
+    }
+    .footer {
+        &__info {
+            width: 400px;
+            height: 250px;
+        }
+        &__addr {
+            font-size: 19px;
+        }
+        &__phone {
+            line-height: 10px;
+        }
+    }
+}
 @media (max-width: 991px) {
 	.promo {
-		min-height: 600px;
-		padding: 21px 10px 60px 10px ;
+		min-height: 500px;
+		padding: 21px 10px 30px 10px ;
+        &__icons {
+            width: 370px;
+        }
 		.header {
 			&__logo {
 				width: 33%;
@@ -9,6 +83,7 @@
 		}
 		&__wrapper {
 			margin-top: 50px;
+            padding-right: 30px;
 			button {
 				width: 274px;
 				height: 45px;
@@ -48,6 +123,51 @@
 			font-size: 13px;
 		}
 	}
+    .consultation {
+        max-height: 500px;
+        padding: 50px 0 45px 35px;
+        &__descr {
+            margin-top: 40px;
+        }
+    }
+    .carousel {
+        padding-top: 40px;
+        &__inner {
+            padding-top: 20px;   
+        }
+        .prev, .next {
+            top: 0;
+            left: 293px;
+            bottom: auto;
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        .next {
+            right: 170px
+        }
+    }
+    .catalog {
+        padding: 50px 0 50px 0;
+        &__tabs {
+            margin-top: 45px;
+        }
+        &__content {
+            margin-top: 40px;
+            justify-content: space-around;
+        }
+    }
+    .reviews {
+        padding-left: 19px;
+    }
+    .footer {
+        &__info {
+            width: 400px;
+            height: 230px;
+            top: 60%;
+        }
+    }
 	.title {
 		font-size: 25px;
 	}
