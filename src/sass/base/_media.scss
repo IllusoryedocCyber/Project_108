@@ -133,7 +133,7 @@
     .carousel {
         padding-top: 40px;
         &__inner {
-            padding-top: 20px;   
+            padding-top: 20px;  
         }
         .prev, .next {
             top: 0;
@@ -220,9 +220,66 @@
 			}
 		}
 	}
+    .consultation {
+        min-height: 550px;
+        padding: 30px 10px 20px 10px;
+        .title {
+            font-size: 20px;
+            text-align: center;
+        }
+        &__descr {
+            text-align: center;
+        }
+        .feed-form {
+            margin: 36px auto 0 auto;   
+        }
+    }
+    .carousel {
+        padding: 25px 0 25px 0;
+        &__inner {
+            img {
+                width: 100%;
+            }
+        }
+        .prev, .next {
+            // left: 250px;
+            position: relative;
+            margin: 56px 49px 0px 30px;
+            left: 194px;
+        }
+    }
+    .catalog {
+        &__tabs {
+            flex-direction: column;
+            margin-top: 35px;
+        }
+        &__tab {
+            margin: 5px 0;
+        }
+    }
+    .reviews {
+        &__items {
+            padding: 0 10px;
+        }
+        &__item {
+            margin: 25px 0;
+            flex-direction: column;
+            vertical-align: middle;
+            align-items: center;
+        }
+        &__img {
+            display: block;
+            margin: 0 auto;
+        }
+        &__descr {
+            width: 100%;
+            text-align: center;
+        }
+    }
 }        
 @media (max-width: 575px) {
 	.promo {
+        width: 100%;
 		min-height: 400px;
 		padding-bottom: 40px;
 	.header {
