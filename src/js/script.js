@@ -76,7 +76,114 @@ $(document).ready(function(){
     
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
-  });
+
+    //Modal
+    $('[data-modal=consultation]').on('click', function(){
+        $('.overlay, #consultation').fadeIn('slow');
+    });
+    
+    $('.modal__close').on('click', function() {
+        $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
+    });
+
+    $('.button_mini').each(function(i) {
+        $(this).on('click', function() {
+            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+            $('.overlay, #order').fadeIn('slow'); 
+        })
+    });
+    
+    //скрипт форма универсальная
+    function validateForms(form){
+        $(form).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlenght: 2
+                },
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "i need you",
+                    minlenght: jQuery.validator.format("Put {0} here simbols!")
+                },
+               phone: "check your phone number",
+               email: {
+                required: "i need your email",
+                email: "wrong email addr"
+               }
+            }
+        });
+    };
+    
+    // беру функцию которая выше валидаэйт формс открываю её и теперь во внутрь нудо положить селектор
+    // той формы которую я хочу завалидировать вот такими вот способами
+    validateForms('#consultation-form');
+    validateForms('#consultation form');
+    validateForms('#order form');
+
+    // маска ввода номера на сайте
+    $('input[name=phone]').mask("+48(999) 999-999");
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+    // smooth scroll and pageup
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+    $("a[href=#up]").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
+    
+    new WOW().init();
+
+    // РЕАЛИЗАЦИЯ ТЕХНОЛОГИИ AJEX ОТПРАВКА ДАННЫХ СЕРВЕРУ БЕЗ ПЕРЕЗАГРУЗКИ СТРАНИЦИ
+    // $('form').submit(function(e) {
+    //     e.preventDefault();
+    //     // if(!$(this).valid()) {
+    //     //     return;
+    //     // }
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "mailer/smart.php",
+    //         data: $(this).serialize()
+    //     }).done(function() {
+    //         $(this).find("input").val("");
+    //         $('#consultation, #order').fadeOut();
+    //         $('.overlay, #thanks').fadeIn('slow');
+
+
+    //         $('form').trigger('reset');
+    //     });
+    //     return false;
+    //     // cleanin all inputs after form is sended ЕСЛИ СЕРВЕР ПРИНЯЛ ДАННЫЕ ВСЕ УДАЛОСЬ МНЕ НЕОБХОДИМО ВЫПОЛНИТЬ ТУТ ФУНКЦИЮ ПОСЛЕ clean margins or some messages
+    // });
+});
 // tinyslider
 const slider = tns({
     container: '.carousel__inner',
